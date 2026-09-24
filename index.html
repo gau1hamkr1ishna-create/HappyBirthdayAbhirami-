@@ -199,19 +199,6 @@
             to { opacity: 1; }
         }
         
-        .image-counter {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 1rem;
-            z-index: 10;
-        }
-        
         .image-caption {
             text-align: center;
             font-size: 1.4rem;
@@ -720,12 +707,6 @@
             // Clear gallery container
             galleryContainer.innerHTML = '';
             
-            // Create image counter
-            const counterDiv = document.createElement('div');
-            counterDiv.className = 'image-counter';
-            counterDiv.innerHTML = `Image <span id="current-img">1</span> of ${imageConfig.totalImages}`;
-            galleryContainer.appendChild(counterDiv);
-            
             // Create all image elements
             for (let i = 0; i < imageConfig.totalImages; i++) {
                 const imgDiv = document.createElement('div');
@@ -837,8 +818,7 @@
             currentImage.style.display = 'block';
             currentImage.classList.add('active-image');
             
-            // Update counter and caption
-            document.getElementById('current-img').textContent = currentIndex + 1;
+            // Update caption
             imageCaption.textContent = imageConfig.captions[currentIndex];
             
             // Update dots
